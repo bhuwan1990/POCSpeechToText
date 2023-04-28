@@ -5,7 +5,7 @@ This project is a speech-to-text application that uses C# MVC Core. The applicat
 ## Prerequisites
 
 - Visual Studio 2019 
-- .NET Core 60. SDK 
+- .NET Core 6.0 SDK 
 
 
 ## Getting Started
