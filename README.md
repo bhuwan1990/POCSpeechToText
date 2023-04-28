@@ -1,10 +1,5 @@
 # POCSpeechToText
 
-
-create  readme.md file  for text to speech app devloped in C# mvc core .net
-
-# POCSpeechToText
-
 This project is a speech-to-text application that uses C# MVC Core. The application takes audio input and converts it into text. It can be used for various purposes like transcribing audio recordings, dictation, and more.
 
 ## Prerequisites
