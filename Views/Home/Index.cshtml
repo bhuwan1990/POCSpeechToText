@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Speech to Text</h1>
+    <p id="pAudioText"></p>
+
+
+</div>
+
+<form id="uploadForm">
+    <input type="file" id="file" class="" />
+    <button id="btnFileUpload" type="button" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+</form>
+
+<script>
+    function uploadFile() {
+        debugger;
+        var fileInput = document.getElementById("file");
+        var file = fileInput.files[0];
+
+        var formData = new FormData();
+        formData.append("file", file);
+
+        $.ajax({
+            url: "@Url.Action("UploadFile","Home")",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                $('#btnFileUpload').prop('disabled', true);
+                $('#btnFileUpload').html('<i class="fa fa-spinner fa-spin"></i> Loading...');
+            },
+            success: function (result) {
+                $('#pAudioText').text(result);
+                console.log(result);
+            },
+            complete: function () {
+                $('#btnFileUpload').prop('disabled', false);
+                $('#btnFileUpload').html('Upload');
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+</script>
